@@ -49,8 +49,7 @@ use vars qw{
 		$VERSION
 };
 
-$VERSION = $VoiceXML::Client::Item::VERSION;
-
+$VERSION = '1.02';
 
 
 
@@ -78,9 +77,14 @@ sub execute {
 	
 	if ($parentForm->calledAsSub())
 	{
+	
+		
+		VoiceXML::Client::Util::log_msg("Returning from subdialog") if ($VoiceXML::Client::Debug);
+		
 		return $VoiceXML::Client::Flow::Directive{'SUBRETURN'};
 	}
 	
+	VoiceXML::Client::Util::log_msg("Return hit but not in subdialog call") if ($VoiceXML::Client::Debug);
 	return $VoiceXML::Client::Flow::Directive{'CONTINUE'};
 	
 	

@@ -7,7 +7,7 @@ WriteMakefile(
     VERSION_FROM      => 'lib/VoiceXML/Client.pm', # finds $VERSION
     PREREQ_PM         => {
     			'LWP::UserAgent'	=> 2.000,
-			'XML::Mini'		=> 1.28,
+			'XML::Mini'		=> 1.36,
 			'HTTP::Cookies'		=> 1.39,
 			'Hash::Util'		=> 0.05,
     

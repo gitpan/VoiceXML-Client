@@ -57,7 +57,7 @@ $VERSION = $VoiceXML::Client::Item::VERSION;
 sub init {
 	my $self = shift;
 	
-	my $mode = $self->{'XMLElement'}->attribute('mode') || '';
+	my $mode = $self->{'XMLElement'}->attribute('mode') || 'all';
 	my $namelist = $self->{'XMLElement'}->attribute('namelist');
 
 	

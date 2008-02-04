@@ -162,8 +162,11 @@ sub doEval {
 	
 	unless (defined $rest && length($rest))
 	{
-		
-		VoiceXML::Client::Util::log_msg("EVAL Returning '$val'") if ($VoiceXML::Client::Debug);
+		if ($VoiceXML::Client::Debug)
+		{
+			my $valOutputStr = (defined $val) ? $val : '';
+			VoiceXML::Client::Util::log_msg("EVAL Returning '$valOutputStr'") ;
+		}
 		return $val ;
 	}
 	

@@ -48,6 +48,11 @@ LICENSE
 Makefile.PL
 MANIFEST
 README
+t/02phpvoice.t
+t/03phpvoicesubdia.t
+t/phpvoicehello.vxml
+t/phpvoicesub.vxml
 t/test.vxml
 t/VoiceXML-Client.t
 voicexmldummytest.pl
+META.yml                                 Module meta-data (added by MakeMaker)

@@ -49,7 +49,7 @@ use vars qw{
 		$VERSION
 };
 
-$VERSION = $VoiceXML::Client::Item::VERSION;
+$VERSION = '1.02';
 
 
 
@@ -59,7 +59,11 @@ sub init {
 	
 	my $src = $self->{'XMLElement'}->attribute('src');
 	
-	return undef unless (defined $src);
+	unless ( (defined $src) && length($src))
+	{
+		VoiceXML::Client::Util::log_msg("subdialog item must have 'src' set.");
+		return undef;
+	}
 	
 	$self->{'src'} = $src;
 	
@@ -110,7 +114,12 @@ sub execute {
 		return $VoiceXML::Client::Flow::Directive{'CONTINUE'};
 	}
 	
+	if ($self->{'parent'})
+	{
+		$self->{'parent'}->proceedToNextChild();
+	}
 	
+	VoiceXML::Client::Util::log_msg("Subdialog jumping to form $formID") if ($VoiceXML::Client::Debug);
 	
 	my $parentForm = $self->getParentForm();
 	$parentForm->clearAutoGuard();
